@@ -18,7 +18,7 @@ public class TestSorting {
 		
 		System.out.println("After Sort");
 		
-		//lambda here!
+		//lambda here!  
 		//listDevs.sort((Developer o1, Developer o2)->o1.getAge()-o2.getAge());
 		
 		//lambda, valid, parameter type is optional
@@ -37,6 +37,8 @@ public class TestSorting {
 		Comparator<Developer> salaryComparator = (o1, o2)->o1.getSalary().compareTo(o2.getSalary());
 		listDevs.sort(salaryComparator.reversed());
 		listDevs.forEach((developer)->System.out.println(developer));
+		
+		listDevs.sort(Comparator.comparing(Developer::getSalary).reversed());
 	}
 
 	private static List<Developer> getDevelopers() {
